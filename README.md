@@ -12,7 +12,7 @@ mask ROM since Raspberry Pi 3 Model B. However, this early implementation is
 buggy and requires many workarounds.
 
 A great place to start is the official [tutorial](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/net_tutorial.md).
-It contains you an overview and a step-by-step guide to setting up the server
+It contains an overview and a step-by-step guide to setting up the server
 side.
 
 Next, read the [full documentation](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/net.md).
@@ -43,8 +43,8 @@ required parameters have been configured, then the transaction is successfull.
 
 So, what does this `netboot-rpi3b` program do? It monitors network traffic for
 DHCP requests from the buggy Raspberry Pi 3 Model B firmware. If one is
-received, it a packet is sent to the requesting Raspberry Pi 0.6 s after the
-DHCP request. This first packet ensures that the DHCP attempt will not aborted
+received, a packet is sent to the requesting Raspberry Pi 0.6 s after the
+DHCP request. This first packet ensures that the DHCP attempt will not abort
 prematurely. Then a second packet is sent 1.2 s after the DHCP request. This
 second packet triggers successful completion of the transaction. The mask ROM
 code then initiates TFTP transfer.
