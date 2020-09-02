@@ -20,7 +20,7 @@ OBJS=\
 all: $(PROGRAMS)
 
 netboot-rpi3b: $(OBJS)
-	$(CC) $(LDFLAGS) $(LIBS) -o $@ $<
+	$(CC) $(LDFLAGS) -o $@ $< $(LIBS)
 
 clean:
 	rm -f $(OBJS) $(PROGRAMS)
