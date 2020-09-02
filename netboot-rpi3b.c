@@ -249,6 +249,7 @@ static void *wol_func(void *arg)
 
 	for (i = 2; i; --i) {
 		usleep(600000);
+		printf("Send WOL to %02x:%02x");
 		res = sendto(rawfd, &self->pkt, sizeof self->pkt, 0,
 			     (struct sockaddr*) &dest, sizeof dest);
 		if (res < 0) {
