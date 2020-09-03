@@ -1,8 +1,10 @@
 Network Boot for the Raspberry Pi 3B
 ====================================
 
-TL;DR Run this program on any host in the same network segment as a Raspberry
-Pi 3 Model B to make it boot from network more reliably. Magic.
+TL;DR If your Raspberry Pi 3 Model B (not Model B+) refuses to boot from
+network, even though you have double-checked the configuration of your DHCP
+and PXE servers, then run this program on any host in the same network segment
+as your Raspberry Pi to fix the issue. Magic.
 
 More Information
 ----------------
@@ -24,6 +26,15 @@ you need.
 
 On the Raspberry Pi 3 Model B, timeout handling is also buggy. This is
 mentioned in the original [blog post](https://www.raspberrypi.org/blog/pi-3-booting-part-ii-ethernet-all-the-awesome/).
+This program deals with the last bug mentioned there:
+
+- _Finally, the failing timeout has a knock-on effect. This means it can
+  require the occasional random packet to wake it up again, so having the
+  Raspberry Pi network wired up to a general network with lots of other
+  computers actually helps!_
+
+Instead of relying on random packets sent by lots of other computers, it sends
+targeted packets to the Raspberry.
 
 Raspberry Pi 3 Model B Timeout Bug
 ----------------------------------
